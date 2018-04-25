@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-sm">
+    </div>
+   <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br> 
+    <div class="table-responsive"> 
+ 
+
+    <a href="<?php echo $this->url->getBaseUri(); ?>add" class="btn btn-success">ADD</a>
+    
+    <table class="table table-write" style="color:gray;">
+
+              <thead>
+                <tr style="color:black;">
+                  <th scope="col">No.</th>
+                  <th scope="col">Activity</th>
+                  <th scope="col">Date</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+              $id=$this->session->get('memberAuthen');
+              $temp_id = Event::find("");
+              for ($i=0;$i<count($temp_id);$i++){?>
+                <tr>
+                  <th scope="row"><?php echo "$i"+1 ?></th>
+                  <td><?php  $temp_id[$i]->name; ?></td>
+                  <td><?php  $temp_id[$i]->date; ?></td>
+                  <td><a style="color:white;" href="<?php echo $this->url->getBaseUri(); ?>event/setId/<?php echo $temp_id[$i]->id;?>" class="btn btn-info" id="edit<?php echo $temp_id[$i]->id;?>" name="edit<?php echo $temp_id[$i]->id;?>" value="<?php echo $temp_id[$i]->id;?>">edit</a></td>
+                  <td><a href="<?php echo $this->url->getBaseUri(); ?>event/deleteId/<?php echo $temp_id[$i]->id;?>" class="btn btn-danger">delete</a></td>
+                </tr>
+              <?php }?>
+              </tbody>
+            </table>
+          </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+ 
+  
